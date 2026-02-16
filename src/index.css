@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "leaflet/dist/leaflet.css";
+
+.nav.active{
+    color: rgb(205, 205, 205);
+    background-color:rgba(255, 255, 255, 0.185) ;
+}
+.act.active{
+    color: rgb(255, 40, 40);
+    scale: 1.08;
+    transition:0.1s ease-in-out ;
+    background-color:rgba(255, 255, 255, 0.185) ;
+}
+.acts.active{
+    color: rgb(16, 27, 232);
+    scale: 1.08;
+    transition:0.1s ease-in-out ;
+    background-color:rgba(255, 255, 255, 0.185) ;
+}
