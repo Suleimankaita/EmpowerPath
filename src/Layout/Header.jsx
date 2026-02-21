@@ -8,12 +8,14 @@ const Header = () => {
   const [isDark, setIsDark] = useState(false); 
   const location = useLocation();
 
-  // Navigation Links
+  // 🔄 UPDATED Navigation Links
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Showcase", path: "/showcase" },
-    { name: "Mentors", path: "/mentors" },
-    { name: "Pricing", path: "/pricing" },
+    { name: "Dashboard", path: "/" },
+    { name: "Explore", path: "/ExploreTalents" },
+    { name: "Mentors", path: "/MentorMatchingPage" },
+    { name: "Projects", path: "/ProjectsPage" },
+    { name: "Notifications", path: "/notifications" },
+    { name: "Profile", path: "/PublicProfile" },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -36,7 +38,7 @@ const Header = () => {
 
   return (
     <>
-      <nav className="mb-20 fixed w-full z-[100] top-0 left-0 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-800/60 transition-all duration-300">
+      <nav className="fixed w-full z-[100] top-0 left-0 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-800/60 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
           
           {/* 1️⃣ LOGO - Responsive scaling */}
@@ -54,13 +56,13 @@ const Header = () => {
           </motion.div>
 
           {/* 2️⃣ DESKTOP NAVIGATION - Hidden on mobile/tablet */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-6">
             {navLinks.map((item) => (
               <NavLink 
                 key={item.name} 
                 to={item.path} 
                 className={({ isActive }) => `
-                  text-[11px] font-bold uppercase tracking-widest transition-colors duration-200
+                    text-[11px] font-bold uppercase tracking-widest transition-colors duration-200
                   ${isActive ? 'text-indigo-600' : 'text-slate-500 dark:text-slate-400 hover:text-indigo-600'}
                 `}
               >
@@ -71,7 +73,7 @@ const Header = () => {
             <NavLink 
               to="/search" 
               className={({ isActive }) => `
-                flex items-center gap-2 px-4 py-1.5 rounded-full border transition-all
+                flex items-center gap-2 px-4 py-1.5 rounded-full border transition-all ml-2
                 ${isActive 
                   ? 'border-indigo-600 text-indigo-600 bg-indigo-50 dark:bg-indigo-900/20' 
                   : 'border-slate-200 dark:border-slate-700 text-slate-500 hover:border-indigo-400'}
@@ -123,7 +125,7 @@ const Header = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[90] bg-white dark:bg-slate-950 pt-24 px-6 lg:hidden flex flex-col"
+            className="fixed inset-0 z-[90] bg-white dark:bg-slate-950 pt-24 px-6 lg:hidden flex flex-col overflow-y-auto"
           >
             <div className="flex flex-col gap-5 mt-4">
               {/* Mobile Search Entry */}
@@ -140,7 +142,7 @@ const Header = () => {
 
               <div className="w-full h-px bg-slate-100 dark:bg-slate-800 my-2" />
 
-              {/* Mobile Nav Links - Reduced font size for mobile */}
+              {/* Mobile Nav Links */}
               <div className="flex flex-col gap-2">
                 {navLinks.map((item) => (
                   <NavLink
@@ -158,7 +160,7 @@ const Header = () => {
               </div>
 
               {/* Mobile Footer Area */}
-              <div className="mt-auto mb-10 space-y-6">
+              <div className="mt-auto mb-10 space-y-6 pt-6">
                  <button className="w-full bg-indigo-600 text-white py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg shadow-indigo-500/25">
                     Get Started Now
                  </button>

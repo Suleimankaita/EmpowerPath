@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="click()">share</button>
+    <script>
+        document.querySelector("button").onclick = () => {
+            alert("clicked")
+            navigator.share({
+                title:"man",
+                text:"hello",
+                url:"https://www.google.com"
+
+            }).then(()=>{
+                console.log("shared successfully")
+            }).catch((err)=>{
+                console.log("error while sharing",err)})
+        }
+    </script>
+</body>
+</html>

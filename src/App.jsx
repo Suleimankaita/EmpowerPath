@@ -326,6 +326,16 @@ import TalentDiscoveryPage from './globals/ShowCase'
 import Search from './globals/Search'
 import ScrollToTop from './utils/Scroll'
 import ExplorePage from './globals/Explore'
+import TalentDiscovery from './globals/Discovery'
+import RoadmapPage from './globals/rootmap'
+import ProjectsPage from './globals/project'
+import ExploreTalents from './globals/Exploretalent'
+import StartJourney from './globals/Startjouney'
+import PublicProfile from './UserProf/UserProfile'
+import MentorMatchingPage from './globals/MentorMatching'
+import MentorDashboard from './globals/mentorDash'
+import MentorChatPage from './globals/MentoreChart'
+import NotificationsEngine from './globals/Notification'
 const App = () => {
   return (
   <>
@@ -339,8 +349,19 @@ const App = () => {
       <Route path=":id" element={<MentorProfile />} />
       </Route>
       <Route path="Showcase" element={<TalentDiscoveryPage />} />
+      <Route path="ExploreTalents" element={<ExploreTalents />} />
       <Route path="Search" element={<Search />} />
-      <Route path="ExplorePage" element={<ExplorePage />} />
+      <Route path="StartJourney" element={<StartJourney />} />
+      <Route path="TalentDiscovery" element={<TalentDiscovery />} />
+      <Route path="PublicProfile" element={<PublicProfile />} />
+      <Route path="MentorMatchingPage" >
+      <Route index element={<MentorMatchingPage />} />
+      <Route path=":id" element={<MentorDashboard />} />
+      </Route>
+      <Route path="Roadmap" element={<RoadmapPage />} />
+      <Route path="MentorChatPage" element={<MentorChatPage />} />
+      <Route path="ProjectsPage" element={<ProjectsPage />} />
+      <Route path="Notifications" element={<NotificationsEngine />} />
       </Route>
     </Routes>
   </>
