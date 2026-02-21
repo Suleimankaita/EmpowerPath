@@ -56,7 +56,7 @@ const fotter = () => {
           </div>
           
           <div className="text-center pt-8 border-t border-slate-200 dark:border-slate-800 text-sm text-slate-500 font-medium flex flex-col md:flex-row justify-center items-center gap-2">
-            <span>© {new Date().getFullYear()} TalentHub Inc. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} EmpowerPath Inc. All rights reserved.</span>
             <span className="flex items-center gap-1">Made with <Heart size={14} className="text-red-500 fill-current" /> for creators.</span>
           </div>
         </div>
