@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Header from './Header';
-import Sidebar from './Sidebar';
+import Sidebar from './SideBar';
 import Fotter from './fotter'; 
 import { Outlet } from 'react-router-dom';
 
