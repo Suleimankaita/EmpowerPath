@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  LayoutDashboard, Compass, Users, FolderKanban, Bell, User 
+  LayoutDashboard, Compass, Users, FolderKanban, Bell, User ,BarChart2
 } from 'lucide-react';
 
 const Sidebar = ({ isExpanded, setHover }) => {
@@ -11,6 +11,7 @@ const Sidebar = ({ isExpanded, setHover }) => {
     { name: "Dashboard", path: "/", icon: LayoutDashboard },
     { name: "Explore", path: "/ExploreTalents", icon: Compass },
     { name: "Mentors", path: "/MentorMatchingPage", icon: Users },
+    { name: "Growth Analytics", path: "/GrowthAnalyticsPage", icon: BarChart2 },
     { name: "Projects", path: "/ProjectsPage", icon: FolderKanban },
     { name: "Notifications", path: "/notifications", icon: Bell },
     { name: "Profile", path: "/UserProfilePage", icon: User },

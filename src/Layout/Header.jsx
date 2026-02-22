@@ -8,7 +8,7 @@ const Header = () => {
   const [isDark, setIsDark] = useState(false); 
   const location = useLocation();
 
-  // 🔄 UPDATED Navigation Links
+  // 🔄 Full list for Mobile view
   const navLinks = [
     { name: "Dashboard", path: "/" },
     { name: "Explore", path: "/ExploreTalents" },
@@ -21,13 +21,11 @@ const Header = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleTheme = () => setIsDark(!isDark);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
     document.body.style.overflow = 'unset';
   }, [location]);
 
-  // Handle scroll lock when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -41,7 +39,7 @@ const Header = () => {
       <nav className="fixed w-full z-[100] top-0 left-0 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-800/60 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
           
-          {/* 1️⃣ LOGO - Responsive scaling */}
+          {/* 1️⃣ LOGO */}
           <motion.div 
             initial={{ opacity: 0, x: -10 }} 
             animate={{ opacity: 1, x: 0 }} 
@@ -55,9 +53,11 @@ const Header = () => {
             </span>
           </motion.div>
 
-          {/* 2️⃣ DESKTOP NAVIGATION - Hidden on mobile/tablet */}
+          {/* 2️⃣ DESKTOP NAVIGATION - Filtered to only "Explore" and "Search" */}
           <div className="hidden lg:flex items-center gap-4 xl:gap-6">
-            {navLinks.map((item) => (
+            {navLinks
+              .filter(item => item.name === "Explore") // Only show Explore on desktop
+              .map((item) => (
               <NavLink 
                 key={item.name} 
                 to={item.path} 
@@ -70,6 +70,7 @@ const Header = () => {
               </NavLink>
             ))}
             
+            {/* The second "Live" item: Search */}
             <NavLink 
               to="/search" 
               className={({ isActive }) => `
@@ -86,14 +87,11 @@ const Header = () => {
 
           {/* 3️⃣ ACTIONS */}
           <div className="flex items-center gap-2 sm:gap-4 z-[101]">
-            
-            {/* Theme Toggle - Hidden on tiny screens, shown on small up */}
             <div 
               onClick={toggleTheme}
               className="hidden xs:flex items-center cursor-pointer group p-2"
             >
               <div className="relative w-11 h-6 md:w-14 md:h-7 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center px-1 transition-colors border border-transparent">
-                <Sun size={12} className="absolute left-1.5 text-amber-500 md:hidden" />
                 <motion.div 
                   layout
                   animate={{ x: isDark ? (window.innerWidth < 768 ? 20 : 28) : 0 }}
@@ -102,12 +100,10 @@ const Header = () => {
               </div>
             </div>
 
-            {/* CTA Button - Adaptive font size */}
             <button className="hidden sm:block bg-slate-900 dark:bg-white text-white dark:text-black px-4 md:px-6 py-2 md:py-2.5 rounded-full font-black text-[10px] md:text-sm hover:scale-105 transition-transform shadow-xl">
               GET STARTED
             </button>
 
-            {/* Mobile Menu Toggle */}
             <button 
               onClick={toggleMenu} 
               className="lg:hidden p-1.5 md:p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
@@ -118,7 +114,7 @@ const Header = () => {
         </div>
       </nav>
 
-      {/* 4️⃣ MOBILE MENU OVERLAY */}
+      {/* 4️⃣ MOBILE MENU OVERLAY - Displays EVERYTHING */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -128,7 +124,6 @@ const Header = () => {
             className="fixed inset-0 z-[90] bg-white dark:bg-slate-950 pt-24 px-6 lg:hidden flex flex-col overflow-y-auto"
           >
             <div className="flex flex-col gap-5 mt-4">
-              {/* Mobile Search Entry */}
               <NavLink 
                 to="/search" 
                 className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800"
@@ -142,7 +137,7 @@ const Header = () => {
 
               <div className="w-full h-px bg-slate-100 dark:bg-slate-800 my-2" />
 
-              {/* Mobile Nav Links */}
+              {/* Mobile Nav Links - Shows all 6 items */}
               <div className="flex flex-col gap-2">
                 {navLinks.map((item) => (
                   <NavLink
@@ -159,7 +154,6 @@ const Header = () => {
                 ))}
               </div>
 
-              {/* Mobile Footer Area */}
               <div className="mt-auto mb-10 space-y-6 pt-6">
                  <button className="w-full bg-indigo-600 text-white py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg shadow-indigo-500/25">
                     Get Started Now

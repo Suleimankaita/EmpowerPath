@@ -337,6 +337,7 @@ import MentorDashboard from './globals/mentorDash'
 import MentorChatPage from './globals/MentoreChart'
 import NotificationsEngine from './globals/Notification'
 import UserProfilePage from './UserProf/profile'
+import GrowthAnalyticsPage from './globals/analytics'
 const App = () => {
   return (
   <>
@@ -364,6 +365,7 @@ const App = () => {
       <Route path="ProjectsPage" element={<ProjectsPage />} />
       <Route path="Notifications" element={<NotificationsEngine />} />
       <Route path="UserProfilePage" element={<UserProfilePage />} />
+      <Route path="GrowthAnalyticsPage" element={<GrowthAnalyticsPage />} />
       </Route>
     </Routes>
   </>
