@@ -15,7 +15,7 @@ const Header = () => {
     { name: "Mentors", path: "/MentorMatchingPage" },
     { name: "Projects", path: "/ProjectsPage" },
     { name: "Notifications", path: "/notifications" },
-    { name: "Profile", path: "/PublicProfile" },
+    { name: "Profile", path: "/UserProfilePage" },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);

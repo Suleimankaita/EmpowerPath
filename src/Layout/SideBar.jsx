@@ -13,7 +13,7 @@ const Sidebar = ({ isExpanded, setHover }) => {
     { name: "Mentors", path: "/MentorMatchingPage", icon: Users },
     { name: "Projects", path: "/ProjectsPage", icon: FolderKanban },
     { name: "Notifications", path: "/notifications", icon: Bell },
-    { name: "Profile", path: "/PublicProfile", icon: User },
+    { name: "Profile", path: "/UserProfilePage", icon: User },
   ];
 
   const [isActive ,setisActive ] = React.useState(false); // Unused state, consider removing if not needed

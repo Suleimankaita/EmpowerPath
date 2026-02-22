@@ -336,6 +336,7 @@ import MentorMatchingPage from './globals/MentorMatching'
 import MentorDashboard from './globals/mentorDash'
 import MentorChatPage from './globals/MentoreChart'
 import NotificationsEngine from './globals/Notification'
+import UserProfilePage from './UserProf/profile'
 const App = () => {
   return (
   <>
@@ -362,6 +363,7 @@ const App = () => {
       <Route path="MentorChatPage" element={<MentorChatPage />} />
       <Route path="ProjectsPage" element={<ProjectsPage />} />
       <Route path="Notifications" element={<NotificationsEngine />} />
+      <Route path="UserProfilePage" element={<UserProfilePage />} />
       </Route>
     </Routes>
   </>
